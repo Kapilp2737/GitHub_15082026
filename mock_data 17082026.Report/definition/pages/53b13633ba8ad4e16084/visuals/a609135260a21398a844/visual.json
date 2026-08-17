@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "a609135260a21398a844",
+  "position": {
+    "x": 424.01514263220491,
+    "y": 197.59928977034792,
+    "z": 0,
+    "height": 300,
+    "width": 300
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MOCK_DATA"
+                    }
+                  },
+                  "Property": "Locations"
+                }
+              },
+              "queryRef": "MOCK_DATA.Locations",
+              "nativeQueryRef": "Locations"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "308d9e9f12b1d4670d58",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MOCK_DATA"
+              }
+            },
+            "Property": "Locations"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}
