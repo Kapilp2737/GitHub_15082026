@@ -1,0 +1,74 @@
+table MOCK_DATA
+	lineageTag: 71ef7b1f-dfc1-4b14-a458-ce01b2b0f289
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 95913aec-992a-4e19-9335-61a6a7d1dd4b
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_name
+		dataType: string
+		lineageTag: 2fd5d576-c31d-4c7c-a822-9c55240bc46b
+		summarizeBy: none
+		sourceColumn: first_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_name
+		dataType: string
+		lineageTag: 33b402cd-9f60-4433-b74b-5293a5e7aee4
+		summarizeBy: none
+		sourceColumn: last_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column email
+		dataType: string
+		lineageTag: 33cbe57d-5287-40c1-877b-b061b7cfc0b3
+		summarizeBy: none
+		sourceColumn: email
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: 2340c6d7-2e11-4838-ae93-653ba41654a9
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column ip_address
+		dataType: string
+		lineageTag: 53e20629-508f-441c-862a-3f702d84ff75
+		summarizeBy: none
+		sourceColumn: ip_address
+
+		annotation SummarizationSetBy = Automatic
+
+	column Locations
+		dataType: string
+		lineageTag: f0da779a-9c47-4f22-90c6-53e745fe0c46
+		summarizeBy: none
+		sourceColumn: Locations
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MOCK_DATA = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\GitHub_15082026\GitHub_15082026\MOCK_DATA.csv"),[Delimiter=",", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"id", Int64.Type}, {"first_name", type text}, {"last_name", type text}, {"email", type text}, {"gender", type text}, {"ip_address", type text}, {"Locations", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

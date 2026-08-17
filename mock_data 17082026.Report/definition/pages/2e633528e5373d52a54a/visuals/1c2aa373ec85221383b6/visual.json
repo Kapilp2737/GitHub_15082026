@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "1c2aa373ec85221383b6",
+  "position": {
+    "x": 16.466607480862326,
+    "y": 268.95458885408465,
+    "z": 1,
+    "height": 451.45948843364215,
+    "width": 319.72662858674352
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MOCK_DATA"
+                    }
+                  },
+                  "Property": "Locations"
+                }
+              },
+              "queryRef": "MOCK_DATA.Locations",
+              "nativeQueryRef": "Locations",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MOCK_DATA"
+                        }
+                      },
+                      "Property": "gender"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(MOCK_DATA.gender)",
+              "nativeQueryRef": "Count of gender"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "MOCK_DATA"
+                      }
+                    },
+                    "Property": "gender"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "97257592857394a26ab1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MOCK_DATA"
+              }
+            },
+            "Property": "Locations"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8b52ff20381b2f99e659",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "MOCK_DATA"
+                  }
+                },
+                "Property": "gender"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
