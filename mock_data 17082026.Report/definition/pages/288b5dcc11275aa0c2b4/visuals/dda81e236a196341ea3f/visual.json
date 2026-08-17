@@ -1,0 +1,122 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "dda81e236a196341ea3f",
+  "position": {
+    "x": 91.876283448646248,
+    "y": 51.761286449941551,
+    "z": 0,
+    "height": 279.51094682968437,
+    "width": 483.9680283069535,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "funnel",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MOCK_DATA"
+                    }
+                  },
+                  "Property": "last_name"
+                }
+              },
+              "queryRef": "MOCK_DATA.last_name",
+              "nativeQueryRef": "last_name",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MOCK_DATA"
+                        }
+                      },
+                      "Property": "id"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(MOCK_DATA.id)",
+              "nativeQueryRef": "Sum of id"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "MOCK_DATA"
+                      }
+                    },
+                    "Property": "id"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "bb930af551c9a6ca80fc",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MOCK_DATA"
+              }
+            },
+            "Property": "last_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "bcf12a5657efe7779634",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "MOCK_DATA"
+                  }
+                },
+                "Property": "id"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
