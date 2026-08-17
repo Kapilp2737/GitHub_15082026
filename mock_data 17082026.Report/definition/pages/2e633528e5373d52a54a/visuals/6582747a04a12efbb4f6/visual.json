@@ -1,0 +1,93 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "6582747a04a12efbb4f6",
+  "position": {
+    "x": 617.67659880626252,
+    "y": 55.814537763835858,
+    "z": 0,
+    "height": 300,
+    "width": 300
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MOCK_DATA"
+                    }
+                  },
+                  "Property": "Locations"
+                }
+              },
+              "queryRef": "MOCK_DATA.Locations",
+              "nativeQueryRef": "Locations"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MOCK_DATA"
+                        }
+                      },
+                      "Property": "gender"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "MOCK_DATA.gender",
+              "nativeQueryRef": "Count of gender"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1af02b319787767dcc01",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MOCK_DATA"
+              }
+            },
+            "Property": "Locations"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4a396025db7b6bc480f0",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "MOCK_DATA"
+                  }
+                },
+                "Property": "gender"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
